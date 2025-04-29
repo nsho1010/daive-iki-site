@@ -11,7 +11,7 @@ const News = async () => {
 
   return (
     <section id="news">
-      <div className="flex flex-col items-center justify-center gap-4 lg:gap-8 p-8 w-full">
+      <div className="flex flex-col items-center justify-center gap-4 lg:gap-8 p-8 w-full ">
         {" "}
         {/* 親コンテナに w-full を追加 */}
         <Link href="/news">

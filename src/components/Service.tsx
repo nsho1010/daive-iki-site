@@ -10,7 +10,7 @@ import {
 
 const serviceData = [
   {
-    name: "イキプログラミング塾",
+    name: "プログラミングスクール",
     description:
       "初心者から上級者まで対応するプログラミング教育プログラム。地域の個人を対象に、実践的なITスキルを身につける機会を提供します。",
     image:
@@ -25,16 +25,16 @@ const serviceData = [
       "https://images.unsplash.com/photo-1614064548237-096f735f344f?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     url: "/coming-soon",
   },
-  // {
-  //   name: "地域コミュニティIT導入支援",
-  //   description:
-  //     "地域のコミュニティに向けたIT導入支援サービス。地元の生活をより便利で豊かにするためのITソリューションを提供し、地域全体の発展をサポートします。",
-  //   image:
-  //     "https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  //   url: "#",
-  // },
   {
-    name: "Coming Soon...",
+    name: "地域コミュニティIT導入支援",
+    description:
+      "地域のコミュニティに向けたIT導入支援サービス。地元の生活をより便利で豊かにするためのITソリューションを提供し、地域全体の発展をサポートします。",
+    image:
+      "https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "#",
+  },
+  {
+    // name: "Coming Soon...",
     description:
       "Coming Soon（現在プロダクトの準備中です。）リリースをお待ちください。",
     image: "/comingsoon.jpg",
@@ -58,7 +58,7 @@ const Service = () => {
           {serviceData.map((service) => (
             <Card
               key={service.name}
-              className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg border-cyan-600"
+              className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 hover:shadow-lg "
             >
               <Link href={service.url} /*target="_brank"*/>
                 <CardHeader className="flex justify-center items-center">

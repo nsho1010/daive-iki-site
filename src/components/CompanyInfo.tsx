@@ -1,7 +1,7 @@
 // import Image from "next/image";
 const companyInfoData = {
-  name: "IKI DX STUDIO",
-  location: "長崎県壱岐市",
+  name: "IKI DX CAMP",
+  location: "長崎県壱岐市郷ノ浦町",
   established: "2024年8月",
   president: "永村 奨平",
   business: "Web制作・アプリ開発・DX人材教育・IT研修",

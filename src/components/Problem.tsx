@@ -40,12 +40,12 @@ const Problem = () => {
     >
       <div className="grid items-center justify-center text-center gap-8 p-8">
         <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl">
-          離島で<span className="text-primary">IKI DX STUDIO</span>
+          離島で<span className="text-primary">IKI DX CAMP</span>
           がサポートします
         </h2>
         <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
           離島でのIT普及には多くの課題があります。IKI DX
-          LABは、プログラミング塾や企業団体向けIT研修を通じて、これらの課題を解決し、DX人材を養成し、壱岐島のICT化を推進します。
+          CAMPは、プログラミング塾や企業団体向けIT研修を通じて、これらの課題を解決し、DX人材を養成し、壱岐島のICT化を推進します。
         </p>
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-10">
           <Image

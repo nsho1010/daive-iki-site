@@ -70,11 +70,14 @@ const Header = () => {
             height={60}
             className="object-contain"
           />
-          <span className="font-extrabold lg:text-4xl md:text-3xl text-xl sm:text-2xl text-foreground leading-tight">
-            {/* {config.appName} */}
-            {/* DX・AIサポート IKI | DAIVe */}
-            DX・AIサポート IKI
-          </span>
+          <div className="flex flex-col">
+            <span className="font-extrabold lg:text-3xl md:text-2xl text-lg sm:text-xl text-foreground leading-tight">
+              DX・AIサポート
+            </span>
+            <span className="font-extrabold lg:text-3xl md:text-2xl text-lg sm:text-xl text-foreground leading-tight">
+              IKI | DAIVe
+            </span>
+          </div>
         </Link>
 
         <div className="hidden md:flex md:justify-center md:gap-12 md:items-center font-semibold text-zinc-700">
@@ -217,9 +220,14 @@ const Header = () => {
                         height={60}
                         className="object-contain"
                       />
-                      <span className="font-extrabold text-xl text-foreground text-slate-50">
-                        DX・AIサポート IKI
-                      </span>
+                      <div className="flex flex-col">
+                        <span className="font-extrabold text-base text-foreground text-slate-50 leading-tight">
+                          DX・AIサポート
+                        </span>
+                        <span className="font-extrabold text-base text-foreground text-slate-50 leading-tight">
+                          IKI | DAIVe
+                        </span>
+                      </div>
                     </Link>
                   </div>
 

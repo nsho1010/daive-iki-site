@@ -26,9 +26,14 @@ const Footer = () => {
                 height={80}
               />
 
-              <strong className="font-extrabold tracking-tight text-base md:text-lg">
-                {config.appName}
-              </strong>
+              <div className="flex flex-col">
+                <strong className="font-extrabold tracking-tight text-base md:text-lg leading-tight">
+                  DX・AIサポート
+                </strong>
+                <strong className="font-extrabold tracking-tight text-base md:text-lg leading-tight">
+                  IKI | DAIVe
+                </strong>
+              </div>
             </Link>
 
             <p className="mt-3 text-sm text-base-content/80">

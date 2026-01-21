@@ -36,7 +36,7 @@ const NewsListPage = async ({
   const totalPages = Math.ceil(data.totalCount / pageSize);
 
   return (
-    <main className="flex flex-col max-w-3xl mx-auto gap-4 lg:gap-8 py-20 lg:pt-24 px-8 min-h-screen">
+    <main className="flex flex-col max-w-3xl mx-auto gap-4 lg:gap-8 py-24 lg:pt-32 px-8 min-h-screen">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

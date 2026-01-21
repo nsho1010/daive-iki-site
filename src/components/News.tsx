@@ -66,15 +66,12 @@ const News = async () => {
           ) : (
             <div className="sm:col-span-2 lg:col-span-3 flex justify-center items-center w-full">
               <div className="overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-cyan-500 to-cyan-600 h-64 flex justify-center items-center w-full">
-                <div className="text-center px-8 py-12 relative">
-                  <div className="absolute -top-10 -left-10 w-40 h-40 bg-white/10 rounded-full"></div>
-                  <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
-
-                  <p className="text-5xl font-bold text-white mb-4">
+                <div className="text-center px-8 py-12">
+                  <p className="text-3xl font-bold text-white mb-4">
                     Coming soon...
                   </p>
-                  <p className="text-white/80 text-lg">
-                    新着情報は準備中です。もうしばらくお待ちください。
+                  <p className="text-white/80 text-md">
+                    新着情報は現在準備中です。公開までお待ちください。
                   </p>
                 </div>
               </div>

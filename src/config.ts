@@ -2,10 +2,10 @@ import { ConfigProps } from "../types/config";
 
 const config = {
   // 必須
-  appName: "IKI DX CAMP",
+  appName: "DX・AIサポート IKI｜DAIVe",
   // 必須: アプリの説明をSEOタグに記載するための設定
   appDescription:
-    "私たちは、DX人材の養成と最新のテクノロジーで壱岐島のICT化を推進します。",
+    "業務改善・AI活用・内製化から、必要に応じたWeb受託開発まで、壱岐の事業者に寄り添って伴走します。",
   // 必須: ドメイン名 (no https://, not trialing slash at the end, just the naked domain)
   domainName: "test.vercel.app",
   // twitterのユーザー名
@@ -17,12 +17,12 @@ const config = {
       label: "トップ",
     },
     {
-      href: "",
-      label: "学ぶ",
+      href: "#service",
+      label: "サービス",
     },
     {
       href: "",
-      label: "IT研修",
+      label: "IT教育",
     },
     {
       href: "/#news",
@@ -30,7 +30,7 @@ const config = {
     },
     {
       href: "/#company-info",
-      label: "運営情報",
+      label: "運営概要",
     },
     {
       href: "/#contact",

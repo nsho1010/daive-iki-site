@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { Link as Scroll } from "react-scroll";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import config from "@/config";
 
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { Zap } from "lucide-react";
 
 const Header = () => {
   const pathname = usePathname();
@@ -63,9 +63,11 @@ const Header = () => {
           title={`${config.appName}`}
           className="flex items-center gap-2 shrink-0"
         >
-          <Zap className="w-6 h-6 " fill="currentColor" />
+          <Image alt="Logo" src="/logo-preview.png" width={80} height={80} />
           <span className="font-extrabold lg:text-4xl md:text-3xl text-2xl text-foreground">
-            {config.appName}
+            {/* {config.appName} */}
+            {/* DX・AIサポート IKI | DAIVe */}
+            DX・AIサポート
           </span>
         </Link>
 
@@ -85,11 +87,22 @@ const Header = () => {
             </Link>
           )}
 
+          {pathname == "/" ? (
+            <Scroll
+              to="service"
+              smooth={true}
+              offset={-100}
+              className="hover:cursor-pointer hover:underline"
+            >
+              サービス
+            </Scroll>
+          ) : (
+            <Link href="/" className="hover:underline">
+              サービス
+            </Link>
+          )}
           <Link href="/coming-soon" target="" className="hover:underline">
-            学ぶ
-          </Link>
-          <Link href="/coming-soon" target="" className="hover:underline">
-            IT研修
+            IT教育
           </Link>
           {pathname == "/" ? (
             <Scroll
@@ -112,11 +125,11 @@ const Header = () => {
               offset={-100}
               className="hover:cursor-pointer hover:underline"
             >
-              運営情報
+              運営概要
             </Scroll>
           ) : (
             <Link href="/#company-info" className="hover:underline">
-              運営情報
+              運営概要
             </Link>
           )}
 
@@ -199,12 +212,12 @@ const Header = () => {
                         <p className="">トップ</p>
                       </Link>
                       <Link
-                        href="/coming-soon"
+                        href="#service"
                         target=""
                         className="link link-hover block text-base font-semibold text-slate-50 border-b-1 pb-2"
                         onClick={() => startAnimation()}
                       >
-                        <p className="">学ぶ</p>
+                        <p className="">サービス</p>
                       </Link>
                       <Link
                         href="/coming-soon"
@@ -212,7 +225,7 @@ const Header = () => {
                         className="link link-hover block text-base font-semibold text-slate-50 border-b-1 pb-2"
                         onClick={() => startAnimation()}
                       >
-                        <p className="">IT研修</p>
+                        <p className="">IT教育</p>
                       </Link>
 
                       {pathname == "/" ? (
@@ -243,7 +256,7 @@ const Header = () => {
                           onClick={() => startAnimation()}
                           className="link link-hover block text-base font-semibold text-slate-50 hover:text-primary cursor-pointer border-b-1 pb-2"
                         >
-                          運営情報
+                          運営概要
                         </Scroll>
                       ) : (
                         <Link
@@ -251,7 +264,7 @@ const Header = () => {
                           className="link link-hover block text-base font-semibold text-slate-50 hover:text-primary cursor-pointer border-b-1 pb-2"
                           onClick={() => startAnimation()}
                         >
-                          運営情報
+                          運営概要
                         </Link>
                       )}
                       {pathname == "/" ? (

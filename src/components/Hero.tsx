@@ -42,7 +42,7 @@ const Hero = () => {
           で加速する
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-          私たちは、IT研修とスキル習得プログラムを通じて、地域の人材を育成し、壱岐島のDX推進をサポートします。
+          業務改善・AI活用・内製化から、必要に応じたWeb受託開発まで、壱岐の事業者に寄り添って伴走します。
         </p>
         <Scroll to="contact" smooth={true} offset={-100}>
           <Button

@@ -77,9 +77,6 @@ const NewsListPage = async ({
           </div>
         ) : (
           <div className="flex flex-col items-center justify-center flex-grow py-20 text-gray-900">
-            <h2 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-6">
-              Coming Soon...
-            </h2>
             <p className="lg:text-lg md:text-base font-medium text-center">
               現在、お知らせはありません。
               <br />

@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import config from "@/config";
 import { motion } from "framer-motion";
 
 const benefitsData = [

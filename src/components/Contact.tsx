@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useFormState } from "react-dom";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 import { submitContactForm, ContactFormState } from "@/actions/contact";
-import { Send, Mail, User, MessageSquare } from "lucide-react";
+import { Send, Mail, User, MessageSquare, X } from "lucide-react";
 
 export default function Component() {
   const initialState: ContactFormState = {
@@ -15,9 +15,16 @@ export default function Component() {
   };
   const [formState, formDispatch] = useFormState(
     submitContactForm,
-    initialState
+    initialState,
   );
   const { toast } = useToast();
+  const [showModal, setShowModal] = useState(false);
+  const [validationErrors, setValidationErrors] = useState<{
+    name?: string;
+    email?: string;
+    message?: string;
+  }>({});
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (formState.status === "success") {
@@ -48,6 +55,49 @@ export default function Component() {
     return null;
   };
 
+  // フォーム送信前の確認
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // バリデーション
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const email = formData.get("email") as string;
+    const message = formData.get("message") as string;
+
+    const errors: { name?: string; email?: string; message?: string } = {};
+
+    if (!name || name.trim() === "") {
+      errors.name = "お名前を入力してください";
+    }
+
+    if (!email || email.trim() === "") {
+      errors.email = "メールアドレスを入力してください";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = "有効なメールアドレスを入力してください";
+    }
+
+    if (!message || message.trim() === "") {
+      errors.message = "メッセージを入力してください";
+    }
+
+    setValidationErrors(errors);
+
+    // エラーがなければモーダルを表示
+    if (Object.keys(errors).length === 0) {
+      setShowModal(true);
+    }
+  };
+
+  // 確認後の送信
+  const handleConfirmedSubmit = () => {
+    setShowModal(false);
+    if (formRef.current) {
+      const formData = new FormData(formRef.current);
+      formDispatch(formData);
+    }
+  };
+
   return (
     <section
       id="contact"
@@ -66,7 +116,12 @@ export default function Component() {
         </div>
 
         <div className="bg-white rounded-xl shadow-sm p-8">
-          <form className="space-y-6" action={formDispatch} noValidate>
+          <form
+            ref={formRef}
+            className="space-y-6"
+            onSubmit={handleSubmit}
+            noValidate
+          >
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <div className="space-y-2">
                 <Label
@@ -82,6 +137,11 @@ export default function Component() {
                   placeholder="名前を入力"
                   className="border-gray-200 focus:border-cyan-500 focus:ring-cyan-500"
                 />
+                {validationErrors.name && (
+                  <div className="text-destructive text-sm mt-1">
+                    {validationErrors.name}
+                  </div>
+                )}
                 {formState.status === "error" &&
                   renderError(formState.fieldErrors?.name)}
               </div>
@@ -100,6 +160,11 @@ export default function Component() {
                   type="email"
                   className="border-gray-200 focus:border-cyan-500 focus:ring-cyan-500"
                 />
+                {validationErrors.email && (
+                  <div className="text-destructive text-sm mt-1">
+                    {validationErrors.email}
+                  </div>
+                )}
                 {formState.status === "error" &&
                   renderError(formState.fieldErrors?.email)}
               </div>
@@ -119,6 +184,11 @@ export default function Component() {
                 name="message"
                 placeholder="メッセージを入力"
               />
+              {validationErrors.message && (
+                <div className="text-destructive text-sm mt-1">
+                  {validationErrors.message}
+                </div>
+              )}
               {formState.status === "error" &&
                 renderError(formState.fieldErrors?.message)}
             </div>
@@ -134,6 +204,43 @@ export default function Component() {
             </div>
           </form>
         </div>
+
+        {/* お問い合わせ送信確認モーダル */}
+        {showModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+            <div className="bg-white rounded-xl shadow-xl p-8 max-w-md w-full mx-4">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold text-gray-900">送信確認</h3>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-400 hover:text-gray-600"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              <p className="text-gray-600 mb-6">
+                入力内容を送信してもよろしいですか？
+              </p>
+              <div className="flex gap-3 justify-end">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setShowModal(false)}
+                  className="px-6"
+                >
+                  キャンセル
+                </Button>
+                <Button
+                  type="button"
+                  onClick={handleConfirmedSubmit}
+                  className="px-6 bg-cyan-600 hover:bg-cyan-700 text-white"
+                >
+                  送信する
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

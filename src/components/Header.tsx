@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 import { Link as Scroll } from "react-scroll";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 import config from "@/config";
 
 import { motion, useAnimation, AnimatePresence } from "framer-motion";
-import { Zap } from "lucide-react";
 
 const Header = () => {
   const pathname = usePathname();
@@ -29,14 +29,14 @@ const Header = () => {
     // 同時に複数のアニメーションを開始
     await Promise.all([
       controls1.start({
-        rotate: clicked ? 0 : 220, // クリックされている場合は0度に戻し、そうでない場合は45度回転
-        y: clicked ? 0 : 6, // クリックされている場合は0に戻し、そうでない場合は6に移動
+        rotate: clicked ? 0 : 45, // クリックされている場合は0度に戻し、そうでない場合は45度回転
+        y: clicked ? 0 : 7, // クリックされている場合は0に戻し、そうでない場合は7に移動
         opacity: clicked ? 1 : 1,
         transition: { duration: 0.4 },
       }),
       controls2.start({
-        rotate: clicked ? 0 : -220, // クリックされている場合は0度に戻し、そうでない場合は-45度回転
-        y: clicked ? 0 : -6, // クリックされている場合は0に戻し、そうでない場合は-6に移動
+        rotate: clicked ? 0 : -45, // クリックされている場合は0度に戻し、そうでない場合は-45度回転
+        y: clicked ? 0 : -7, // クリックされている場合は0に戻し、そうでない場合は-7に移動
         opacity: clicked ? 1 : 1, // クリックされている場合は1に戻し、そうでない場合は0にする
         transition: { duration: 0.4 },
       }),
@@ -63,10 +63,21 @@ const Header = () => {
           title={`${config.appName}`}
           className="flex items-center gap-2 shrink-0"
         >
-          <Zap className="w-6 h-6 " fill="currentColor" />
-          <span className="font-extrabold lg:text-4xl md:text-3xl text-2xl text-foreground">
-            {config.appName}
-          </span>
+          <Image
+            alt="Logo"
+            src="/logo-preview.png"
+            width={60}
+            height={60}
+            className="object-contain"
+          />
+          <div className="flex flex-col">
+            <span className="font-extrabold lg:text-3xl md:text-2xl text-lg sm:text-xl text-foreground leading-tight">
+              DX・AIサポート
+            </span>
+            <span className="font-extrabold lg:text-3xl md:text-2xl text-lg sm:text-xl text-foreground leading-tight">
+              IKI | DAIVe
+            </span>
+          </div>
         </Link>
 
         <div className="hidden md:flex md:justify-center md:gap-12 md:items-center font-semibold text-zinc-700">
@@ -85,11 +96,22 @@ const Header = () => {
             </Link>
           )}
 
+          {pathname == "/" ? (
+            <Scroll
+              to="service"
+              smooth={true}
+              offset={-100}
+              className="hover:cursor-pointer hover:underline"
+            >
+              サービス
+            </Scroll>
+          ) : (
+            <Link href="/" className="hover:underline">
+              サービス
+            </Link>
+          )}
           <Link href="/coming-soon" target="" className="hover:underline">
-            学ぶ
-          </Link>
-          <Link href="/coming-soon" target="" className="hover:underline">
-            IT研修
+            スキル習得
           </Link>
           {pathname == "/" ? (
             <Scroll
@@ -112,11 +134,11 @@ const Header = () => {
               offset={-100}
               className="hover:cursor-pointer hover:underline"
             >
-              運営情報
+              運営概要
             </Scroll>
           ) : (
             <Link href="/#company-info" className="hover:underline">
-              運営情報
+              運営概要
             </Link>
           )}
 
@@ -148,26 +170,28 @@ const Header = () => {
 
         {/* モバイルーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー */}
 
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center">
           <motion.div
             onClick={() => startAnimation()}
-            className="relative z-50"
+            className="relative z-50 flex flex-col justify-center"
           >
             <motion.div
               className={
                 isOpen
-                  ? "w-8 h-0.5 bg-slate-50  my-2.5"
-                  : "w-8 h-0.5  bg-[#20214d] my-2.5"
+                  ? "w-8 h-0.5 bg-slate-50  my-1.5"
+                  : "w-8 h-0.5  bg-[#20214d] my-1.5"
               }
               animate={controls1}
+              style={{ transformOrigin: "50% 50%" }}
             ></motion.div>
             <motion.div
               className={
                 isOpen
-                  ? "w-8 h-0.5 bg-slate-50  my-2.5"
-                  : "w-8 h-0.5  bg-[#20214d] my-2.5"
+                  ? "w-8 h-0.5 bg-slate-50  my-1.5"
+                  : "w-8 h-0.5  bg-[#20214d] my-1.5"
               }
               animate={controls2}
+              style={{ transformOrigin: "50% 50%" }}
             ></motion.div>
           </motion.div>
 
@@ -182,12 +206,30 @@ const Header = () => {
                 transition={{ duration: 0.4 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                <div className="absolute top-0 right-0 w-full h-full  p-4 z-30 bg-cyan-600">
-                  <Link href="/" title={`${config.appName}`}>
-                    <span className="font-extrabold text-2xl text-foreground text-slate-50">
-                      {config.appName}
-                    </span>
-                  </Link>
+                <div className="absolute top-0 right-0 w-full h-full z-30 bg-cyan-600">
+                  <div className="flex justify-between items-center px-4 py-4">
+                    <Link
+                      href="/"
+                      title={`${config.appName}`}
+                      className="flex items-center gap-2"
+                    >
+                      <Image
+                        alt="Logo"
+                        src="/logo-preview-white.png"
+                        width={60}
+                        height={60}
+                        className="object-contain"
+                      />
+                      <div className="flex flex-col">
+                        <span className="font-extrabold text-base text-foreground text-slate-50 leading-tight">
+                          DX・AIサポート
+                        </span>
+                        <span className="font-extrabold text-base text-foreground text-slate-50 leading-tight">
+                          IKI | DAIVe
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
 
                   <div className="py-16  px-4">
                     <nav className="space-y-8 ">
@@ -198,21 +240,34 @@ const Header = () => {
                       >
                         <p className="">トップ</p>
                       </Link>
+
+                      {pathname == "/" ? (
+                        <Scroll
+                          to="#service"
+                          smooth={true}
+                          offset={-40}
+                          onClick={() => startAnimation()}
+                          className="link link-hover block text-base font-semibold text-slate-50 hover:text-primary cursor-pointer border-b-1 pb-2"
+                        >
+                          サービス
+                        </Scroll>
+                      ) : (
+                        <Link
+                          href="/"
+                          className="link link-hover block text-base font-semibold text-slate-50 hover:text-primary cursor-pointer border-b-1 pb-2"
+                          onClick={() => startAnimation()}
+                        >
+                          サービス
+                        </Link>
+                      )}
+
                       <Link
                         href="/coming-soon"
                         target=""
                         className="link link-hover block text-base font-semibold text-slate-50 border-b-1 pb-2"
                         onClick={() => startAnimation()}
                       >
-                        <p className="">学ぶ</p>
-                      </Link>
-                      <Link
-                        href="/coming-soon"
-                        target=""
-                        className="link link-hover block text-base font-semibold text-slate-50 border-b-1 pb-2"
-                        onClick={() => startAnimation()}
-                      >
-                        <p className="">IT研修</p>
+                        <p className="">スキル習得</p>
                       </Link>
 
                       {pathname == "/" ? (
@@ -243,7 +298,7 @@ const Header = () => {
                           onClick={() => startAnimation()}
                           className="link link-hover block text-base font-semibold text-slate-50 hover:text-primary cursor-pointer border-b-1 pb-2"
                         >
-                          運営情報
+                          運営概要
                         </Scroll>
                       ) : (
                         <Link
@@ -251,7 +306,7 @@ const Header = () => {
                           className="link link-hover block text-base font-semibold text-slate-50 hover:text-primary cursor-pointer border-b-1 pb-2"
                           onClick={() => startAnimation()}
                         >
-                          運営情報
+                          運営概要
                         </Link>
                       )}
                       {pathname == "/" ? (

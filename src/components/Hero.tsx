@@ -26,7 +26,7 @@ const Hero = () => {
   return (
     <motion.section
       id="hero"
-      className="flex flex-col-reverse lg:flex-row items-center justify-center max-w-7xl mx-auto sm:gap-8 md:gap-16 lg:gap-24 pt-16 lg:pt-28 pb-0 px-4 lg:px-8 min-h-[70vh]"
+      className="flex flex-col-reverse lg:flex-row items-center justify-center max-w-7xl mx-auto sm:gap-8 md:gap-16 lg:gap-24 pt-24 lg:pt-40 pb-0 px-4 lg:px-8 min-h-[70vh]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -41,8 +41,8 @@ const Hero = () => {
           </span>
           で加速する
         </h1>
-        <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-          私たちは、IT研修とスキル習得プログラムを通じて、地域の人材を育成し、壱岐島のDX推進をサポートします。
+        <p className="text-xl md:text-xl text-muted-foreground leading-relaxed">
+          業務改善・AI活用・内製化から、必要に応じたWeb受託開発まで、壱岐の事業者に寄り添って伴走します。
         </p>
         <Scroll to="contact" smooth={true} offset={-100}>
           <Button

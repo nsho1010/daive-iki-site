@@ -6,27 +6,27 @@ import { motion } from "framer-motion";
 const problemData = [
   {
     icon: <Users className="h-6 w-6 text-cyan-600" />,
-    title: "人口減少と高齢化",
+    title: "担い手不足と属人化",
     description:
-      "若年層の流出と高齢化が進む中、高齢者に対するIT教育やサポート。現役世代への実践的なIT教育ができておらず、人材が確保できない状況。",
+      "人口減少や高齢化により、ITや業務改善を担う人が限られ、特定の人に業務やノウハウが集中してしまっている。",
   },
   {
     icon: <DollarSign className="h-6 w-6 text-cyan-600" />,
-    title: "コストの問題",
+    title: "外注依存によるコスト増",
     description:
-      "外部委託に頼ることによるコストの増加、これが島内企業がIT活用できない障壁となっている。",
+      "ITやシステム対応を外部に頼り続けることでコストがかさみ、継続的なDXや改善に踏み出しにくい状況がある。",
   },
   {
     icon: <Shield className="h-6 w-6 text-cyan-600" />,
-    title: "技術サポートの不足",
+    title: "身近な相談先の不足",
     description:
-      "離島では、IT関連の技術サポートが少なく、問題が発生した際に迅速に対応できる人材や企業が限られている。",
+      "離島では、トラブルや改善の相談を気軽にできる相手が少なく、問題が後回しになりやすい。",
   },
   {
     icon: <AlertTriangle className="h-6 w-6 text-cyan-600" />,
-    title: "地域コミュニティの抵抗感",
+    title: "IT活用が定着しない",
     description:
-      "伝統的な生活様式やコミュニティの中で、IT導入に対する抵抗感がある場合があり、新しい技術の導入が難しい。",
+      "ツールを導入しても現場に合わず、使われないまま終わってしまうケースが少なくない。",
   },
 ];
 
@@ -36,17 +36,17 @@ const Problem = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="py-16"
+      className="py-16 bg-gray-50"
     >
       <div className="max-w-6xl mx-auto px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4">
-            離島で<span className="text-cyan-600">IKI DX CAMP</span>
-            がサポートします
+            <span className="text-cyan-600">IT・業務改善・AI活用支援</span>
+            をサポートします
           </h2>
           <p className="mx-auto max-w-[700px] text-muted-foreground">
-            離島でのIT普及には多くの課題があります。IKI DX
-            CAMPは、プログラミング塾や企業団体向けIT研修を通じて、これらの課題を解決し、DX人材を養成し、壱岐島のICT化を推進します。
+            離島でのIT活用には多くの課題があります。 DX・AIサポート IKI |
+            DAIVeは、業務改善とAI活用を軸に、壱岐島にDXが根づく支援を行います。
           </p>
         </div>
 

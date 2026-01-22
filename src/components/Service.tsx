@@ -5,34 +5,36 @@ import { motion } from "framer-motion";
 
 const serviceData = [
   {
+    name: "DX・AI伴走支援",
+    description:
+      "業務改善からAI活用、運用の定着まで。現場に合わせて小さく始め、成果が出る形に整える伴走型サポートです。",
+    image:
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "/coming-soon",
+  },
+  {
+    name: "Web制作・開発",
+    description:
+      "集客サイトから業務用Webアプリまで。目的設計→制作→公開後の改善まで、壱岐の事業に合う形でスピーディに実装します。",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    url: "/coming-soon",
+  },
+  {
     name: "プログラミングスクール",
     description:
-      "初心者から上級者まで対応するプログラミング教育プログラム。地域の個人を対象に、実践的なITスキルを身につける機会を提供します。",
+      "学びの場も提供しています。基礎から実務まで、壱岐で使えるスキルを身につけたい方向けです（詳細は別ページ）。",
     image:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     url: "/coming-soon",
   },
   {
-    name: "企業団体・教育機関向けIT研修",
+    name: "企業・団体向けIT研修",
     description:
-      "地域の企業や団体・教育機関向けにカスタマイズされたIT研修プログラム。社員のITリテラシーを向上させ、デジタル化による業務効率の向上を支援します。",
+      "必要なテーマだけを短時間で。DX・AI活用を現場に落とし込むための研修を、伴走支援の一部として提供します。",
     image:
       "https://images.unsplash.com/photo-1614064548237-096f735f344f?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     url: "/coming-soon",
-  },
-  {
-    name: "地域コミュニティIT導入支援",
-    description:
-      "地域のコミュニティに向けたIT導入支援サービス。地元の生活をより便利で豊かにするためのITソリューションを提供し、地域全体の発展をサポートします。",
-    image:
-      "https://images.unsplash.com/photo-1506485338023-6ce5f36692df?q=80&w=1080&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    url: "#",
-  },
-  {
-    name: "Coming Soon...",
-    description: "現在プロダクトの準備中です。リリースをお待ちください。",
-    image: "/comingsoon.jpg",
-    url: "",
   },
 ];
 
@@ -55,7 +57,7 @@ const Service = () => {
             <span className="absolute bottom-0 left-0 right-0 h-3 bg-cyan-600/20 z-0"></span>
           </h2>
           <p className="mx-auto max-w-[700px] md:text-xl/relaxed lg:text-xl/relaxed xl:text-xl/relaxed text-muted-foreground">
-            サービス紹介
+            DX・AI活用とWeb制作・開発、プログラミング教育をご提供。
           </p>
         </motion.div>
 
@@ -94,9 +96,9 @@ const Service = () => {
                       {service.description}
                     </p>
 
-                    {service.url && (
+                    {service.url && service.name === "プログラミングスクール" && (
                       <div className="mt-4 pt-4 border-t border-gray-100 text-sm font-medium text-cyan-600 flex items-center justify-end">
-                        詳細を見る
+                        サービスページへ
                         <svg
                           className="w-4 h-4 ml-1 transition-transform duration-300 group-hover:translate-x-1"
                           xmlns="http://www.w3.org/2000/svg"

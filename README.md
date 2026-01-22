@@ -1,4 +1,4 @@
-# IKI DX CAMP ホームページ
+# DX・AIサポート IKI｜DAIVe Webサイト
 
 ## 始め方
 

@@ -23,6 +23,11 @@ export const getSEOTags = ({
         : `https://${config.domainName}/`
     ),
     language: "ja-JP",
+    icons: {
+      icon: "/logo.png",
+      shortcut: "/logo.png",
+      apple: "/logo.png",
+    },
     openGraph: {
       title: openGraph?.title || config.appName,
       description: openGraph?.description || config.appDescription,

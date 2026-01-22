@@ -1,28 +1,27 @@
 "use client";
 import Image from "next/image";
-import config from "@/config";
 import { motion } from "framer-motion";
 
 const benefitsData = [
   {
     image: "/educator.svg",
-    title: "企業団体向けのIT研修支援",
+    title: "業務改善とDXの伴走支援",
     description:
-      "地域の企業や団体に向けて、ITスキルの向上を目指した研修プログラムを提供します。これにより、社員のITリテラシーを高め、業務効率の向上とデジタル化による競争力の強化を実現します。",
+      "現場の業務を一緒に整理し、ムダ・手戻りを減らす改善から着手。小さく始めて成果を積み上げ、壱岐の現場に合うDXを形にします。",
     icon: "🏢",
   },
   {
     image: "/programming.svg",
-    title: "個人向けのITスキル習得",
+    title: "AI活用で“できること”を増やす",
     description:
-      "地域の個人を対象に、ITスキルの習得をサポートします。初心者から上級者まで、個々のニーズに合わせたプログラムを提供し、キャリアアップや新たなビジネス機会の創出を支援します。",
+      "文章作成・問い合わせ対応・見積や資料づくりなど、すぐ効く領域からAIを導入。ツール選定から運用まで、無理なく使える形で支援します。",
     icon: "💻",
   },
   {
     image: "/teaching.svg",
-    title: "地域コミュニティへのIT導入",
+    title: "定着と内製化までサポート",
     description:
-      "地域コミュニティのIT導入を推進し、地元の生活をより便利で豊かにします。デジタル技術を活用して、コミュニティ内の連携や情報共有を強化し、地域全体の発展を支援します。",
+      "導入して終わりにせず、社内で回る状態まで伴走。必要な範囲で研修やマニュアル整備も行い、“外注し続けない”体制づくりを支えます。",
     icon: "🌐",
   },
 ];
@@ -33,7 +32,7 @@ const Benefits = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.3 }}
-      className="py-16 bg-gradient-to-b from-white to-gray-50"
+      className="py-16 bg-white"
     >
       <div className="max-w-7xl mx-auto px-8">
         <div className="flex flex-col items-center justify-center space-y-12 text-center">
@@ -45,10 +44,11 @@ const Benefits = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              離島での<span className="text-cyan-600">DX推進</span>を支援します
+              壱岐の<span className="text-cyan-600">DX・AI活用</span>
+              を伴走支援します
             </h2>
             <p className="mx-auto max-w-[700px] text-muted-foreground text-lg">
-              {config.appName}が、離島のIT導入を全面的にサポートします。
+              業務改善からAI活用、定着・内製化まで一緒に進めます。
             </p>
           </motion.div>
 

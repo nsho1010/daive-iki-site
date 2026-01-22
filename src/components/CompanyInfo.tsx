@@ -1,11 +1,12 @@
 import { MapPin, User, Briefcase } from "lucide-react";
 
 const companyInfoData = {
-  name: "IKI DX CAMP",
-  location: "長崎県壱岐市郷ノ浦町",
-  established: "2024年8月",
+  name: "DX・AIサポート IKI｜DAIVe",
+  location: "長崎県壱岐市",
+  established: "2026年1月",
   president: "永村 奨平",
-  business: "Web制作・アプリ開発・DX人材教育・IT研修",
+  business:
+    "DX・AI活用の伴走支援／Web制作・受託開発／IT研修・プログラミング教育",
 };
 
 const CompanyInfo = () => {
@@ -14,7 +15,7 @@ const CompanyInfo = () => {
       <div className="max-w-6xl mx-auto px-8">
         <div className="flex flex-col items-center justify-center space-y-8 mb-10">
           <h2 className="relative inline-block text-4xl font-bold tracking-tight">
-            <span className="relative z-10">運営情報</span>
+            <span className="relative z-10">運営概要</span>
             <span className="absolute bottom-0 left-0 right-0 h-3 bg-cyan-600/20 z-0"></span>
           </h2>
         </div>
@@ -56,7 +57,7 @@ const CompanyInfo = () => {
               <div className="flex items-center gap-3">
                 <Briefcase className="w-5 h-5 text-cyan-600" />
                 <div>
-                  <dt className="font-medium">活動内容</dt>
+                  <dt className="font-medium">提供内容</dt>
                   <dd className="text-gray-600">{companyInfoData.business}</dd>
                 </div>
               </div>

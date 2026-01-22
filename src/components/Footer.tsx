@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Zap } from "lucide-react";
 import { Link as Scroll } from "react-scroll";
 import { usePathname } from "next/navigation";
 import config from "@/config";
+import Image from "next/image";
 
 const Footer = () => {
   const pathname = usePathname();
@@ -19,10 +19,21 @@ const Footer = () => {
               aria-current="page"
               className="flex gap-2 justify-center md:justify-start items-center"
             >
-              <Zap className="w-6 h-6" fill="currentColor" />
-              <strong className="font-extrabold tracking-tight text-base md:text-lg">
-                {config.appName}
-              </strong>
+              <Image
+                alt="Logo"
+                src="/logo-preview-white.png"
+                width={80}
+                height={80}
+              />
+
+              <div className="flex flex-col">
+                <strong className="font-extrabold tracking-tight text-base md:text-lg leading-tight">
+                  DX・AIサポート
+                </strong>
+                <strong className="font-extrabold tracking-tight text-base md:text-lg leading-tight">
+                  IKI | DAIVe
+                </strong>
+              </div>
             </Link>
 
             <p className="mt-3 text-sm text-base-content/80">
@@ -46,20 +57,26 @@ const Footer = () => {
                     トップ
                   </Link>
                 )}
-
+                {pathname == "/" ? (
+                  <Scroll
+                    to="service"
+                    smooth={true}
+                    offset={-100}
+                    className="hover:cursor-pointer hover:underline"
+                  >
+                    サービス
+                  </Scroll>
+                ) : (
+                  <Link href="/" className="hover:underline">
+                    サービス
+                  </Link>
+                )}
                 <Link
                   href="/coming-soon"
                   target="_brank"
                   className="hover:underline"
                 >
-                  学ぶ
-                </Link>
-                <Link
-                  href="/coming-soon"
-                  target="_brank"
-                  className="hover:underline"
-                >
-                  IT研修
+                  スキル習得
                 </Link>
                 {pathname == "/" ? (
                   <Scroll
@@ -82,11 +99,11 @@ const Footer = () => {
                     offset={-100}
                     className="hover:cursor-pointer hover:underline"
                   >
-                    運営情報
+                    運営概要
                   </Scroll>
                 ) : (
                   <Link href="/#company-info" className="hover:underline">
-                    運営情報
+                    運営概要
                   </Link>
                 )}
 
